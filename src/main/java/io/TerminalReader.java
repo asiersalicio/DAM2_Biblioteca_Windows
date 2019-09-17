@@ -20,10 +20,19 @@ public class TerminalReader {
 			System.out.print(pregunta + " (" + numeroMinimo + " - " + numeroMaximo + "): ");
 			try {
 				resultado=reader.nextInt();
-				error=false;
+				if (resultado<numeroMinimo || resultado > numeroMaximo)
+				{
+					System.out.println("Solo se permiten numeros entre " + numeroMinimo + " y " + numeroMaximo);
+				}
+				else
+				{
+					error=false;
+				}
+					
 			}catch(InputMismatchException ex)
 			{
-				System.out.println("Solo admite numeros");
+				System.out.println("Solo se admiten numeros");
+				reader.nextLine();
 			}
 		}
 		return resultado;
