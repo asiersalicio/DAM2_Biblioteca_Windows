@@ -1,17 +1,17 @@
-package io;
+package es;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class TerminalReader {
+public class Consola {
 
 	private Scanner reader;
-	public TerminalReader(Scanner reader)
+	public Consola(Scanner reader)
 	{
 		this.reader=reader;
 	}
 	
-	public int nextInt(String pregunta, int numeroMinimo, int numeroMaximo)
+	public int IntroducirInt(String pregunta, int numeroMinimo, int numeroMaximo)
 	{
 		boolean error=true;
 		int resultado = 0;
@@ -38,7 +38,7 @@ public class TerminalReader {
 		return resultado;
 	}
 	
-	public String nextString(String pregunta)
+	public String IntroducirString(String pregunta)
 	{
 		System.out.print(pregunta);
 		return reader.next();

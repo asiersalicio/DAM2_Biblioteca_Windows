@@ -1,4 +1,4 @@
-package core;
+package nucleo;
 
 public class AppTest {
 
