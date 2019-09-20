@@ -24,6 +24,7 @@ public class Interprete {
             {
                 resultado=resultado + linea + "\n";
             }
+            lectorArchivos.close();
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -53,31 +54,33 @@ public class Interprete {
 		return resultado;
 	}
 	
-	public void LectorArchivos3D(File archivo, String separador)
+	public ArrayList<String[]> LectorArchivos3D(File archivo, String separador)
 	{
 		
-		//ESTO HAY QUE MEJORARLO
-		   try
+		ArrayList<String[]> fila = new ArrayList<String[]>();
+		String linea;
+		
+		try
 	        {
-	            String linea = "";
+	            
+	            
 	            //Create the file reader
 	            BufferedReader lectorArchivos = new BufferedReader(new FileReader(archivo));
-	             
 	            //Read the file line by line
+	            int contador=0;
 	            while ((linea = lectorArchivos.readLine()) != null)
 	            {
-	                //Get all tokens available in line
-	                String[] tokens = linea.split(separador);
-	                for(String token : tokens)
-	                {
-	                    //Print all tokens
-	                    System.out.println(token);
-	                }
+	            	String[] list = linea.split(separador);
+	            	fila.add(contador,list);
+	            	contador++;
 	            }
+	            lectorArchivos.close();
 	        }
 	        catch (Exception e) {
 	            e.printStackTrace();
 	        }
+			
+		   return fila;
 
 	}
 }

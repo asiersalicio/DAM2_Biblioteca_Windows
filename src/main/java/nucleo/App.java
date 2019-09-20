@@ -17,10 +17,11 @@ public class App {
 	
 	public static void main(String[] args) {
 		Inicializar();
-		System.out.println(consola.IntroducirInt("AAAA", 0, 10));
+		//System.out.println(consola.IntroducirInt("AAAA", 0, 10));
 		System.out.println(interprete.LectorTextoPlano(archivos.ElegirArchivo(new JFileChooser(),new FileNameExtensionFilter("CSV o TXT", "csv", "txt"))));
 		//consola.ImprimirArray2D(interprete.LectorLineas(archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("TXT", "txt")), ","));
-		interprete.LectorArchivos3D(archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("csv", "csv")), ",");
+		consola.ImprimirArray3D(interprete.LectorArchivos3D(archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("csv", "csv")), ";"));
+		
 	}
 	
 	private static void Inicializar()

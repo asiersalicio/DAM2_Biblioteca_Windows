@@ -1,5 +1,6 @@
 package es;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -50,6 +51,31 @@ public class Consola {
 		{
 			System.out.println(array[i]);
 			System.out.println("----------------------------------");
+		}
+	}
+	
+	public void ImprimirArray3D(ArrayList<String[]> array)
+	{
+		for(int i=0;i<array.size();i++)
+		{
+			System.out.print(i + "\t");
+			for(int z=0;z<array.get(i).length;z++)
+			{
+				if(array.get(i)[z].length()>12)
+				{
+					System.out.print("|" + array.get(i)[z].substring(0, 12) + "...");
+				}
+				else if(array.get(i)[z].length()>6) 
+				{
+					System.out.print("|" + array.get(i)[z] + "\t");
+				}
+				else
+				{
+					System.out.print("|" + array.get(i)[z] + "\t\t");
+				}
+				
+			}
+			System.out.println("\n-------------------------------------------------------------------------------");
 		}
 	}
 	
