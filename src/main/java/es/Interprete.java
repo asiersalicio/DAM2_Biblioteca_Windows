@@ -83,6 +83,46 @@ public class Interprete {
 	        }
 			
 		   return fila;
-
+	}
+	
+	public String[][] LectorArchivosINI(File archivo)
+	{
+		
+		String[][] fila = null;
+		String linea;
+		
+		try
+	        {
+	            BufferedReader lectorArchivos = new BufferedReader(new FileReader(archivo));
+	            BufferedReader contadorFilas = new BufferedReader(new FileReader(archivo));
+	            int filas=0;
+	            String filaTemporal;
+	            
+	            while((filaTemporal=contadorFilas.readLine()) !=null)
+	            		filas++;
+	            contadorFilas.close();
+	            
+	            fila = new String[filas][0];
+	            int contador=0;
+	            while ((linea = lectorArchivos.readLine()) != null)
+	            {
+	            	if(!(linea.charAt(0)=='#') && !(linea.charAt(0)==' '))
+	            	{
+		            	String[] list = linea.split("=");
+		            	fila[contador] = list;
+		            	contador++;
+	            	} else if(linea.charAt(0)=='[')
+	            	{
+	            		System.out.println("pos muy bien");
+	            	}
+	            	
+	            }
+	            lectorArchivos.close();
+	        }
+	        catch (Exception e) {
+	            e.printStackTrace();
+	        }
+			
+		   return fila;
 	}
 }
