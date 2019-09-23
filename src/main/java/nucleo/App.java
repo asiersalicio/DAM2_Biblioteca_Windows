@@ -19,8 +19,8 @@ public class App {
 		Inicializar();
 		//System.out.println(consola.IntroducirInt("AAAA", 0, 10));
 		System.out.println(interprete.LectorTextoPlano(archivos.ElegirArchivo(new JFileChooser(),new FileNameExtensionFilter("CSV o TXT", "csv", "txt"))));
-		//consola.ImprimirArray2D(interprete.LectorLineas(archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("TXT", "txt")), ","));
-		consola.ImprimirArray3D(interprete.LectorArchivos3D(archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("csv", "csv")), ";"));
+		//consola.ImprimirArray1D(interprete.LectorLineas(archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("TXT", "txt")), ","));
+		consola.ImprimirArray2D(interprete.LectorArchivos2D(archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("csv", "csv")), ";"));
 		
 	}
 	

@@ -1,6 +1,5 @@
 package es;
 
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -45,7 +44,7 @@ public class Consola {
 		return reader.next();
 	}
 	
-	public void ImprimirArray2D(String[] array)
+	public void ImprimirArray1D(String[] array)
 	{
 		for(int i=0;i<array.length;i++)
 		{
@@ -54,24 +53,24 @@ public class Consola {
 		}
 	}
 	
-	public void ImprimirArray3D(ArrayList<String[]> array)
+	public void ImprimirArray2D(String[][] array)
 	{
-		for(int i=0;i<array.size();i++)
+		for(int i=0;i<array.length;i++)
 		{
 			System.out.print(i + "\t");
-			for(int z=0;z<array.get(i).length;z++)
+			for(int z=0;z<array[i].length;z++)
 			{
-				if(array.get(i)[z].length()>12)
+				if(array[i][z].length()>12)
 				{
-					System.out.print("|" + array.get(i)[z].substring(0, 12) + "...");
+					System.out.print("|" + array[i][z].substring(0, 12) + "...");
 				}
-				else if(array.get(i)[z].length()>6) 
+				else if(array[i][z].length()>6) 
 				{
-					System.out.print("|" + array.get(i)[z] + "\t");
+					System.out.print("|" + array[i][z] + "\t");
 				}
 				else
 				{
-					System.out.print("|" + array.get(i)[z] + "\t\t");
+					System.out.print("|" + array[i][z] + "\t\t");
 				}
 				
 			}

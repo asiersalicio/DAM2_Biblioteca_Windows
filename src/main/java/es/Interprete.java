@@ -3,7 +3,6 @@ package es;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Interprete {
@@ -32,7 +31,7 @@ public class Interprete {
 		return resultado;
 	}
 	
-	public String[] LectorArchivos2D(File archivo, String separador)
+	public String[] LectorArchivos1D(File archivo, String separador)
 	{
 		String[] resultado = new String[0];
 		try
@@ -54,24 +53,27 @@ public class Interprete {
 		return resultado;
 	}
 	
-	public ArrayList<String[]> LectorArchivos3D(File archivo, String separador)
+	public String[][] LectorArchivos2D(File archivo, String separador)
 	{
 		
-		ArrayList<String[]> fila = new ArrayList<String[]>();
+		String[][] fila = null;
 		String linea;
 		
 		try
 	        {
-	            
-	            
-	            //Create the file reader
 	            BufferedReader lectorArchivos = new BufferedReader(new FileReader(archivo));
-	            //Read the file line by line
+	            BufferedReader contadorFilas = new BufferedReader(new FileReader(archivo));
+	            int filas=0;
+	            while(contadorFilas.readLine() !=null)
+	            	filas++;
+	            contadorFilas.close();
+	            
+	            fila = new String[filas][0];
 	            int contador=0;
 	            while ((linea = lectorArchivos.readLine()) != null)
 	            {
 	            	String[] list = linea.split(separador);
-	            	fila.add(contador,list);
+	            	fila[contador] = list;
 	            	contador++;
 	            }
 	            lectorArchivos.close();
