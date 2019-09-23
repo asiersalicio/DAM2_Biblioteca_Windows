@@ -70,7 +70,7 @@ public class EditorTablas extends App {
 		{
 			for(int z=0;z<celdas[i].length;z++)
 			{
-				new Celda(panelDatos, i, z, i + " x " + z);
+				new Celda(panelDatos, z, i, celdas[i][z]);
 			}
 		}
 	}

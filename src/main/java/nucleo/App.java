@@ -15,10 +15,9 @@ public class App {
 	
 	public static void main(String[] args) {
 		Inicializar();
-		//System.out.println(consola.IntroducirInt("AAAA", 0, 10));
-		//System.out.println(es.interprete.LectorTextoPlano(es.archivos.ElegirArchivo(new JFileChooser(),new FileNameExtensionFilter("CSV o TXT", "csv", "txt"))));
-		//consola.ImprimirArray1D(interprete.LectorLineas(archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("TXT", "txt")), ","));
-		//es.consola.ImprimirArray2D(es.interprete.LectorArchivos2D(es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("csv", "csv")), ";"));
+		System.out.println(es.consola.IntroducirInt("AAAA", 0, 10));
+		System.out.println(es.interprete.LectorTextoPlano(es.archivos.ElegirArchivo(new JFileChooser(),new FileNameExtensionFilter("CSV o TXT", "csv", "txt"))));
+		es.consola.ImprimirArray2D(es.interprete.LectorArchivos2D(es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("csv", "csv")), ";"));
 		
 		vista.editorTablas.RellenarCelda(es.interprete.LectorArchivos2D(es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("csv", "csv")), ";"));
 		vista.editorTablas.Mostrar();
