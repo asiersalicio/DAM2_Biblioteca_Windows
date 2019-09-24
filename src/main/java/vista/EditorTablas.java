@@ -93,7 +93,13 @@ public class EditorTablas extends App {
 		
 		scrollHorizontal = new JScrollBar();
 		scrollHorizontal.setOrientation(JScrollBar.HORIZONTAL);
+		scrollHorizontal.addAdjustmentListener(new AdjustmentListener() {
+			public void adjustmentValueChanged(AdjustmentEvent arg0) {
+				ActualizarPosCeldas();
+			}
+		});
 		panelContenedor.add(scrollHorizontal, BorderLayout.SOUTH);
+		
 		
 		scrollVertical = new JScrollBar();
 		scrollVertical.addAdjustmentListener(new AdjustmentListener() {
