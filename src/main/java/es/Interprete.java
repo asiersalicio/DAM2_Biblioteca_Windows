@@ -3,6 +3,7 @@ package es;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.swing.JFileChooser;
@@ -58,27 +59,24 @@ public class Interprete extends App {
 		return resultado;
 	}
 	
-	public String[][] LectorArchivos2D(File archivo, String separador)
+	public ArrayList<ArrayList<String>> LectorArchivos2D(File archivo, String separador)
 	{
 		
-		String[][] fila = null;
+		ArrayList<ArrayList<String>> tabla = null;
 		String linea;
 		
 		try
 	        {
 	            BufferedReader lectorArchivos = new BufferedReader(new FileReader(archivo));
-	            BufferedReader contadorFilas = new BufferedReader(new FileReader(archivo));
-	            int filas=0;
-	            while(contadorFilas.readLine() !=null)
-	            	filas++;
-	            contadorFilas.close();
-	            
-	            fila = new String[filas][0];
 	            int contador=0;
 	            while ((linea = lectorArchivos.readLine()) != null)
 	            {
 	            	String[] list = linea.split(separador);
-	            	fila[contador] = list;
+	            	for(int i=0;i<list.length;i++)
+	            	{
+	            		tabla.get(contador).set(i, list[i]);
+	            	}
+	            	
 	            	contador++;
 	            }
 	            lectorArchivos.close();
@@ -87,57 +85,39 @@ public class Interprete extends App {
 	            e.printStackTrace();
 	        }
 			
-		   return fila;
+		   return tabla;
 	}
 	
-	public String[][] LectorArchivosINI(File archivo)
+	public ArrayList<ArrayList<String>> LectorArchivosINI(File archivo)
 	{
 		
-		String[][] fila = null;
+		ArrayList<ArrayList<String>> tabla = null;
 		String linea;
 		
 		try
-	        {
-	            BufferedReader lectorArchivos = new BufferedReader(new FileReader(archivo));
-	            BufferedReader contadorFilas = new BufferedReader(new FileReader(archivo));
-	            int filas=0;
-	            String filaTemporal;
-	           
-	            while((filaTemporal=contadorFilas.readLine()) !=null)
-	            	 try {
-	            	if(!(filaTemporal.charAt(0)=='#') && !(filaTemporal.charAt(0)==' '))
-					{
-						filas++;
-					}
-	            	 }
-	            	catch(StringIndexOutOfBoundsException ex) {} catch(ArrayIndexOutOfBoundsException ex2) {}
-	  	        	
-	            contadorFilas.close();
-	            
-	            fila = new String[filas][0];
-	            int contador=0;
-	            while ((linea = lectorArchivos.readLine()) != null)
-	            {
-	            	try {
-		            	if(!(linea.charAt(0)=='#') && !(linea.charAt(0)==' '))
-		            	{
-			            	String[] list = linea.split("=");
-			            	fila[contador] = list;
-			            	contador++;
-		            	} else if(linea.charAt(0)=='[')
-		            	{
-		            		System.out.println("pos muy bien");
-		            	}
-	            	}catch(StringIndexOutOfBoundsException ex) {} catch(ArrayIndexOutOfBoundsException ex2) {}
-	            	
-	            }
-	            lectorArchivos.close();
-	        }
-	        catch (Exception e) {
-	            e.printStackTrace();
-	        }
+        {
+            BufferedReader lectorArchivos = new BufferedReader(new FileReader(archivo));
+            int contador=0;
+            while ((linea = lectorArchivos.readLine()) != null)
+            {
+            	if(!(linea.charAt(0)!='#') && !(linea.charAt(0)!=' ')) 
+            	{
+	            	String[] list = linea.split("0");
+	            	for(int i=0;i<list.length;i++)
+	            	{
+	            		tabla.get(contador).set(i, list[i]);
+	            	}
+            	}
+            	
+            	contador++;
+            }
+            lectorArchivos.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
 			
-		   return fila;
+		   return tabla;
 	}
 	
 	public boolean LeerArchivoConsolaPorExtension(File archivo)
@@ -185,7 +165,7 @@ public class Interprete extends App {
 		else if (archivo.getPath().endsWith(".ini"))
 		{
 			System.out.println("[INFO] .ini detectado");
-			vista.editorTablas.RellenarCelda(es.interprete.LectorArchivos2D(archivo,";"));
+			vista.editorTablas.RellenarCelda(es.interprete.LectorArchivos2D(archivo,"="));
 			vista.editorTablas.Mostrar();
 			return true;
 		}

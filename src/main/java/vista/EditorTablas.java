@@ -20,6 +20,7 @@ import nucleo.App;
 
 import javax.swing.JScrollBar;
 import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
 import java.beans.PropertyChangeEvent;
 import java.awt.event.AdjustmentListener;
 import java.awt.event.AdjustmentEvent;
@@ -40,7 +41,7 @@ public class EditorTablas extends App {
 	private JPanel panelDatos;
 	private JScrollBar scrollHorizontal;
 	private JScrollBar scrollVertical;
-	private Celda[][] celdas;
+	private ArrayList<ArrayList<Celda>> celdas;
 	private int anchoCeldas = 60;
 	private int altoCeldas = 60;
 	private boolean ventanaVisible=false;
@@ -116,22 +117,14 @@ public class EditorTablas extends App {
 		ventanaVisible=true;
 	}
 	
-	public void RellenarCelda(String[][] textos)
+	public void RellenarCelda(ArrayList<ArrayList<String>> arrayList)
 	{
-		scrollVertical.setMaximum(textos.length);
-		celdas=new Celda[textos.length][];
-		for(int y=0;y<textos.length;y++)
+		scrollVertical.setMaximum(arrayList.size());
+		for(int y=0;y<arrayList.size();y++)
 		{
-			for(int x=0;x<textos[y].length;x++)
+			for(int x=0;x<arrayList.get(y).size();x++)
 			{
-				celdas[y]=new Celda[textos[y].length];
-			}
-		}
-		for(int y=0;y<textos.length;y++)
-		{
-			for(int x=0;x<textos[y].length;x++)
-			{
-				celdas[y][x]=new Celda(panelDatos, x, y, textos[y][x]);
+				celdas.get(y).set(x, new Celda(panelDatos, x, y, arrayList.get(y).get(x)));
 			}
 		}
 	}
@@ -139,12 +132,12 @@ public class EditorTablas extends App {
 	private void ActualizarPosCeldas()
 	{
 		if(ventanaVisible)
-			for(int y=0;y<celdas.length;y++)
+			for(int y=0;y<celdas.size();y++)
 			{
 				try {
-				for(int x=0;x<celdas[y].length;x++)
+				for(int x=0;x<celdas.get(y).size();x++)
 				{					
-					celdas[y][x].ActualizarPos(scrollHorizontal.getValue(), scrollVertical.getValue(), anchoCeldas, altoCeldas);
+					celdas.get(y).get(x).ActualizarPos(scrollHorizontal.getValue(), scrollVertical.getValue(), anchoCeldas, altoCeldas);
 					}
 				}
 				catch(NullPointerException ex) {}

@@ -1,5 +1,6 @@
 package es;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -53,24 +54,24 @@ public class Consola {
 		}
 	}
 	
-	public void ImprimirArray2D(String[][] array)
+	public void ImprimirArray2D(ArrayList<ArrayList<String>> arrayList)
 	{
-		for(int i=0;i<array.length;i++)
+		for(int i=0;i<arrayList.size();i++)
 		{
 			System.out.print(i + "\t");
-			for(int z=0;z<array[i].length;z++)
+			for(int z=0;z<arrayList.get(i).size();z++)
 			{
-				if(array[i][z].length()>12)
+				if(arrayList.get(i).get(z).length()>12)
 				{
-					System.out.print("|" + array[i][z].substring(0, 12) + "...");
+					System.out.print("|" + arrayList.get(i).get(z).substring(0, 12) + "...");
 				}
-				else if(array[i][z].length()>6) 
+				else if(arrayList.get(i).get(z).length()>6) 
 				{
-					System.out.print("|" + array[i][z] + "\t");
+					System.out.print("|" + arrayList.get(i).get(z) + "\t");
 				}
 				else
 				{
-					System.out.print("|" + array[i][z] + "\t\t");
+					System.out.print("|" + arrayList.get(i).get(z) + "\t\t");
 				}
 				
 			}
