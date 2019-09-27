@@ -148,21 +148,21 @@ public class Interprete extends App {
 		if(archivo.getPath().endsWith(".txt"))
 		{
 			System.out.println("[INFO] .txt detectado");
-			vista.editorTexto.EstablecerTexto(LectorTextoPlano(archivo));
+			vista.editorTexto.EstablecerTexto(LectorTextoPlano(archivo), archivo);
 			vista.editorTexto.Mostrar();
 			return true;
 		}
 		else if (archivo.getPath().endsWith(".csv"))
 		{
 			System.out.println("[INFO] .csv detectado");
-			vista.editorTablas.RellenarCelda(es.interprete.LectorArchivos2D(archivo,";"));
+			vista.editorTablas.RellenarCeldas(es.interprete.LectorArchivos2D(archivo,";"), archivo);
 			vista.editorTablas.Mostrar();
 			return true;
 		}
 		else if (archivo.getPath().endsWith(".ini"))
 		{
 			System.out.println("[INFO] .ini detectado");
-			vista.editorTablas.RellenarCelda(es.interprete.LectorArchivosINI(archivo));
+			vista.editorTablas.RellenarCeldas(es.interprete.LectorArchivosINI(archivo), archivo);
 			vista.editorTablas.Mostrar();
 			return true;
 		}

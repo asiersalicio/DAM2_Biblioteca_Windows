@@ -2,6 +2,7 @@ package vista.controladores;
 
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
+import java.io.File;
 import java.util.ArrayList;
 
 import javax.swing.event.ChangeEvent;
@@ -49,13 +50,13 @@ public class EditorTablas extends G_EditorTablas {
 		ventanaVisible=true;
 	}
 	
-	public void RellenarCelda(ArrayList<ArrayList<String>> arrayList)
+	public void RellenarCeldas(ArrayList<ArrayList<String>> arrayList, File archivo)
 	{
 		celdas = new ArrayList<ArrayList<Celda>>();
 		scrollVertical.setMaximum(arrayList.size());
+		frame.setTitle(archivo.getName());
 		for(int y=0;y<arrayList.size();y++)
 		{
-			
 			celdas.add(y, new ArrayList<Celda>());
 			for(int x=0;x<arrayList.get(y).size();x++)
 			{

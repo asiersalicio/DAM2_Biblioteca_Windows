@@ -8,9 +8,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JSlider;
 
+import nucleo.App;
 import objetos.Celda;
+import java.awt.Toolkit;
 
-public class G_EditorTablas {
+public class G_EditorTablas extends App {
 
 	protected JFrame frame;
 	protected JPanel panelPrincipal;
@@ -28,6 +30,7 @@ public class G_EditorTablas {
 	public G_EditorTablas()
 	{		
 		frame = new JFrame();
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(G_EditorTablas.class.getResource("/javax/swing/plaf/metal/icons/ocean/file.gif")));
 		frame.setSize(500, 500);
 		
 		panelPrincipal = new JPanel();
