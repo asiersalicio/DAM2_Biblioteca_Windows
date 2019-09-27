@@ -119,12 +119,15 @@ public class EditorTablas extends App {
 	
 	public void RellenarCelda(ArrayList<ArrayList<String>> arrayList)
 	{
+		celdas = new ArrayList<ArrayList<Celda>>();
 		scrollVertical.setMaximum(arrayList.size());
 		for(int y=0;y<arrayList.size();y++)
 		{
+			
+			celdas.add(y, new ArrayList<Celda>());
 			for(int x=0;x<arrayList.get(y).size();x++)
 			{
-				celdas.get(y).set(x, new Celda(panelDatos, x, y, arrayList.get(y).get(x)));
+				celdas.get(y).add(x, new Celda(panelDatos, x, y, arrayList.get(y).get(x)));
 			}
 		}
 	}

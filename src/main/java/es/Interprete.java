@@ -62,7 +62,7 @@ public class Interprete extends App {
 	public ArrayList<ArrayList<String>> LectorArchivos2D(File archivo, String separador)
 	{
 		
-		ArrayList<ArrayList<String>> tabla = null;
+		ArrayList<ArrayList<String>> tabla = new ArrayList<ArrayList<String>>();
 		String linea;
 		
 		try
@@ -72,11 +72,11 @@ public class Interprete extends App {
 	            while ((linea = lectorArchivos.readLine()) != null)
 	            {
 	            	String[] list = linea.split(separador);
+	            	tabla.add(new ArrayList<String>());
 	            	for(int i=0;i<list.length;i++)
 	            	{
-	            		tabla.get(contador).set(i, list[i]);
+	            		tabla.get(contador).add(i, list[i]);
 	            	}
-	            	
 	            	contador++;
 	            }
 	            lectorArchivos.close();
@@ -91,7 +91,7 @@ public class Interprete extends App {
 	public ArrayList<ArrayList<String>> LectorArchivosINI(File archivo)
 	{
 		
-		ArrayList<ArrayList<String>> tabla = null;
+		ArrayList<ArrayList<String>> tabla = new ArrayList<ArrayList<String>>();
 		String linea;
 		
 		try
@@ -100,16 +100,16 @@ public class Interprete extends App {
             int contador=0;
             while ((linea = lectorArchivos.readLine()) != null)
             {
-            	if(!(linea.charAt(0)!='#') && !(linea.charAt(0)!=' ')) 
+            	if(!(linea.charAt(0)=='#') && !(linea.charAt(0)==' ')) 
             	{
-	            	String[] list = linea.split("0");
+	            	String[] list = linea.split("=");
+	            	tabla.add(new ArrayList<String>());
 	            	for(int i=0;i<list.length;i++)
 	            	{
-	            		tabla.get(contador).set(i, list[i]);
+	            		tabla.get(contador).add(i, list[i]);
 	            	}
+	            	contador++;
             	}
-            	
-            	contador++;
             }
             lectorArchivos.close();
         }
@@ -165,7 +165,7 @@ public class Interprete extends App {
 		else if (archivo.getPath().endsWith(".ini"))
 		{
 			System.out.println("[INFO] .ini detectado");
-			vista.editorTablas.RellenarCelda(es.interprete.LectorArchivos2D(archivo,"="));
+			vista.editorTablas.RellenarCelda(es.interprete.LectorArchivosINI(archivo));
 			vista.editorTablas.Mostrar();
 			return true;
 		}
