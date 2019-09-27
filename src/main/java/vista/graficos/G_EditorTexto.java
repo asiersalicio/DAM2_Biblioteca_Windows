@@ -1,23 +1,13 @@
 package vista.graficos;
 
 import java.awt.BorderLayout;
-import java.awt.event.AdjustmentEvent;
-import java.awt.event.AdjustmentListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
-import javax.swing.JSlider;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-
-import vista.controladores.EditorTexto;
-
 import javax.swing.JTextArea;
 import javax.swing.JToolBar;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.ImageIcon;
 
 
 public class G_EditorTexto

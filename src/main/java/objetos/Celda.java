@@ -1,20 +1,19 @@
 package objetos;
 
-import javax.swing.JPanel;
-import javax.swing.border.BevelBorder;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
-import java.awt.Cursor;
+import javax.swing.JPanel;
+import javax.swing.border.BevelBorder;
 
 public class Celda {
 	private JPanel panel;
 	private int colX;
 	private int colY;
-	private JPanel panelDatos;
 	private String nomCelda;
 	
 	public Celda(JPanel panelDatos, int colX, int colY, String nomCelda)
@@ -24,7 +23,6 @@ public class Celda {
 		
 		this.colX=colX;
 		this.colY=colY;
-		this.panelDatos=panelDatos;
 		this.nomCelda=nomCelda;
 		
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));

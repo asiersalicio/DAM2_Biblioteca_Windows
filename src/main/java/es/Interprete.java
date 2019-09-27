@@ -6,9 +6,6 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
-
 import nucleo.App;
 
 public class Interprete extends App {

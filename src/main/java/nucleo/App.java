@@ -1,10 +1,5 @@
 package nucleo;
 
-import java.util.Scanner;
-
-import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
-
 import es.Es;
 import vista.Vista;
 
