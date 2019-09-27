@@ -1,4 +1,4 @@
-package vista;
+package objetos;
 
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;

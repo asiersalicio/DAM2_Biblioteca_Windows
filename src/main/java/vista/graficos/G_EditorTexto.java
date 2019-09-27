@@ -1,4 +1,4 @@
-package vista;
+package vista.graficos;
 
 import java.awt.BorderLayout;
 import java.awt.event.AdjustmentEvent;
@@ -10,23 +10,30 @@ import javax.swing.JScrollBar;
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+
+import vista.controladores.EditorTexto;
+
 import javax.swing.JTextArea;
 import javax.swing.JToolBar;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
 
 
-public class EditorTexto
+public class G_EditorTexto
 {
 
-private JFrame frame;
-private JPanel panelPrincipal;
-private JPanel panelInferior;
-private JPanel panelContenedor;
-private JTextArea textArea;
-private JToolBar toolBar;
-private boolean ventanaVisible=false;
+protected JFrame frame;
+protected JPanel panelPrincipal;
+protected JPanel panelInferior;
+protected JPanel panelContenedor;
+protected JTextArea textArea;
+protected JToolBar toolBar;
+protected boolean ventanaVisible=false;
+protected JButton btnGuardar;
 
-public EditorTexto()
-{		
+public G_EditorTexto()
+{			
 	frame = new JFrame();
 	frame.setSize(500, 500);
 	
@@ -46,17 +53,10 @@ public EditorTexto()
 	
 	toolBar = new JToolBar();
 	panelContenedor.add(toolBar, BorderLayout.NORTH);
-}
-
-public void EstablecerTexto(String texto)
-{
-	textArea.setText(texto);
-}
 	
-public void Mostrar()
-{
-	frame.setVisible(true);
-	ventanaVisible=true;
+	btnGuardar = new JButton("");
+	btnGuardar.setIcon(new ImageIcon(G_EditorTexto.class.getResource("/javax/swing/plaf/metal/icons/ocean/floppy.gif")));
+	toolBar.add(btnGuardar);
 }
 	
 }

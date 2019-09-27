@@ -1,4 +1,4 @@
-package vista;
+package vista.graficos;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 
 import nucleo.App;
+import objetos.Celda;
 
 import javax.swing.JScrollBar;
 import java.beans.PropertyChangeListener;
@@ -32,7 +33,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 
-public class EditorTablas extends App {
+public class G_EditorTablas extends App {
 
 	private JFrame frame;
 	private JPanel panelPrincipal;
@@ -46,7 +47,7 @@ public class EditorTablas extends App {
 	private int altoCeldas = 60;
 	private boolean ventanaVisible=false;
 	
-	public EditorTablas()
+	public G_EditorTablas()
 	{		
 		frame = new JFrame();
 		frame.setSize(500, 500);
