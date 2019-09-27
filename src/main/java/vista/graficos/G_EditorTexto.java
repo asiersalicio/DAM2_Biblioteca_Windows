@@ -2,7 +2,6 @@ package vista.graficos;
 
 import java.awt.BorderLayout;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -11,7 +10,6 @@ import javax.swing.JToolBar;
 
 import nucleo.App;
 
-import java.awt.Toolkit;
 
 
 public class G_EditorTexto extends App
@@ -32,7 +30,6 @@ public G_EditorTexto()
 	frame = new JFrame();
 	frame.setTitle("Nuevo documento de texto plano");
 	frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-	frame.setIconImage(Toolkit.getDefaultToolkit().getImage(G_EditorTexto.class.getResource("/javax/swing/plaf/metal/icons/ocean/file.gif")));
 	frame.setSize(500, 500);
 	
 	panelPrincipal = new JPanel();
@@ -52,12 +49,10 @@ public G_EditorTexto()
 	toolBar = new JToolBar();
 	panelContenedor.add(toolBar, BorderLayout.NORTH);
 	
-	btnNuevo = new JButton("");
-	btnNuevo.setIcon(new ImageIcon(G_EditorTexto.class.getResource("/com/sun/java/swing/plaf/windows/icons/File.gif")));
+	btnNuevo = new JButton("Nuevo");
 	toolBar.add(btnNuevo);
 	
-	btnGuardar = new JButton("");
-	btnGuardar.setIcon(new ImageIcon(G_EditorTexto.class.getResource("/javax/swing/plaf/metal/icons/ocean/floppy.gif")));
+	btnGuardar = new JButton("Guardar");
 	toolBar.add(btnGuardar);
 }
 	

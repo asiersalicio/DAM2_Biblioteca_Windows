@@ -8,8 +8,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import javafx.stage.FileChooser;
-
 public class Archivos {
 
 	public Archivos() {
