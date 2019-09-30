@@ -10,6 +10,9 @@ import javax.swing.JSlider;
 
 import nucleo.App;
 import objetos.Celda;
+import objetos.CeldaDatos;
+import javax.swing.JToolBar;
+import javax.swing.JButton;
 
 public class G_EditorTablas extends App {
 
@@ -17,7 +20,7 @@ public class G_EditorTablas extends App {
 	protected JPanel panelPrincipal;
 	protected JPanel panelInferior;
 	protected JPanel panelContenedor;
-	protected JPanel panelDatos;
+	public JPanel panelDatos;
 	protected JScrollBar scrollHorizontal;
 	protected JScrollBar scrollVertical;
 	protected ArrayList<ArrayList<Celda>> celdas;
@@ -25,6 +28,8 @@ public class G_EditorTablas extends App {
 	protected int altoCeldas = 60;
 	protected boolean ventanaVisible=false;
 	protected JSlider sliderHorizontal, sliderVertical;
+	protected JButton btnNuevo;
+	protected JButton btnGuardar;
 	
 	public G_EditorTablas()
 	{		
@@ -68,6 +73,15 @@ public class G_EditorTablas extends App {
 		
 		scrollVertical = new JScrollBar();
 		panelContenedor.add(scrollVertical, BorderLayout.EAST);
+		
+		JToolBar toolBar = new JToolBar();
+		panelContenedor.add(toolBar, BorderLayout.NORTH);
+		
+		btnNuevo = new JButton("Nuevo");
+		toolBar.add(btnNuevo);
+		
+		btnGuardar = new JButton("Guardar");
+		toolBar.add(btnGuardar);
 	}
 }
 

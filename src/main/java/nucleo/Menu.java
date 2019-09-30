@@ -26,7 +26,7 @@ public class Menu extends App {
 		break;
 		case 2: LeerModoGrafico();
 		break;
-		case 3: new EditorTexto(); vista.editorTexto.Mostrar();
+		case 3: new EditorTexto(); vista.editorTexto = new EditorTexto(); vista.editorTexto.Mostrar();
 		break;
 		}
  		}

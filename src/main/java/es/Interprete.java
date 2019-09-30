@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import nucleo.App;
+import vista.controladores.EditorTablas;
+import vista.controladores.EditorTexto;
 
 public class Interprete extends App {
 
@@ -148,6 +150,7 @@ public class Interprete extends App {
 		if(archivo.getPath().endsWith(".txt"))
 		{
 			System.out.println("[INFO] .txt detectado");
+			vista.editorTexto = new EditorTexto();
 			vista.editorTexto.EstablecerTexto(LectorTextoPlano(archivo), archivo);
 			vista.editorTexto.Mostrar();
 			return true;
@@ -155,6 +158,7 @@ public class Interprete extends App {
 		else if (archivo.getPath().endsWith(".csv"))
 		{
 			System.out.println("[INFO] .csv detectado");
+			vista.editorTablas = new EditorTablas();
 			vista.editorTablas.RellenarCeldas(es.interprete.LectorArchivos2D(archivo,";"), archivo);
 			vista.editorTablas.Mostrar();
 			return true;
@@ -162,6 +166,7 @@ public class Interprete extends App {
 		else if (archivo.getPath().endsWith(".ini"))
 		{
 			System.out.println("[INFO] .ini detectado");
+			vista.editorTablas = new EditorTablas();
 			vista.editorTablas.RellenarCeldas(es.interprete.LectorArchivosINI(archivo), archivo);
 			vista.editorTablas.Mostrar();
 			return true;

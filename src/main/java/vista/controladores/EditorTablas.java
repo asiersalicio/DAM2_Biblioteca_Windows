@@ -1,5 +1,7 @@
 package vista.controladores;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
 import java.io.File;
@@ -9,10 +11,16 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import objetos.Celda;
+import objetos.CeldaAnadir;
+import objetos.CeldaDatos;
 import vista.graficos.G_EditorTablas;
 
 public class EditorTablas extends G_EditorTablas {
 
+	private boolean cambios = false;
+	private File archivo=null;
+	public boolean ratonEncima=false;
+	
 	public EditorTablas()
 	{
 		AnadirListeners();
@@ -42,6 +50,13 @@ public class EditorTablas extends G_EditorTablas {
 				ActualizarPosCeldas();
 			}
 		});
+		btnNuevo.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				NuevoArchivo();
+				cambios=false;
+			}
+		});	
 	}
 
 	public void Mostrar()
@@ -55,13 +70,16 @@ public class EditorTablas extends G_EditorTablas {
 		celdas = new ArrayList<ArrayList<Celda>>();
 		scrollVertical.setMaximum(arrayList.size());
 		frame.setTitle(archivo.getName());
-		for(int y=0;y<arrayList.size();y++)
+		int x,y;
+		
+		for(y=0;y<arrayList.size();y++)
 		{
 			celdas.add(y, new ArrayList<Celda>());
-			for(int x=0;x<arrayList.get(y).size();x++)
+			for(x=0;x<arrayList.get(y).size();x++)
 			{
-				celdas.get(y).add(x, new Celda(panelDatos, x, y, arrayList.get(y).get(x)));
+				celdas.get(y).add(x, new CeldaDatos(panelDatos, x, y, arrayList.get(y).get(x)));
 			}
+			//celdas.get(y).add(x+1, new CeldaAnadir(panelDatos, x+1, y));
 		}
 	}
 	
@@ -81,5 +99,11 @@ public class EditorTablas extends G_EditorTablas {
 				catch(NullPointerException ex) {}
 			}
 		}
+	}
+	
+	private void NuevoArchivo()
+	{
+		archivo=null;
+		frame.setTitle("Nuevo documento de texto plano");
 	}
 }

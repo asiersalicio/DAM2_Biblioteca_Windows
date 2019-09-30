@@ -10,8 +10,8 @@ public class Vista {
 	
 	public Vista()
 	{
-		editorTablas = new EditorTablas();
-		editorTexto = new EditorTexto();
+//		editorTablas = new EditorTablas();
+//		editorTexto = new EditorTexto();
 	}
 	
 }

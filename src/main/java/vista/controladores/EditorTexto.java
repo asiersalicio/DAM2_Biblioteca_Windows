@@ -37,7 +37,7 @@ public class EditorTexto extends G_EditorTexto {
 			}
 		});	
 		
-		textArea.getDocument().addDocumentListener(new DocumentListener() {
+		editorPane.getDocument().addDocumentListener(new DocumentListener() {
 			
 			@Override
 			public void changedUpdate(DocumentEvent e) {
@@ -79,7 +79,7 @@ public class EditorTexto extends G_EditorTexto {
 	{
 		this.archivo=archivo;
 		frame.setTitle(archivo.getName());
-		textArea.setText(texto);
+		editorPane.setText(texto);
 		cambios=false;
 	}
 		
@@ -92,13 +92,13 @@ public class EditorTexto extends G_EditorTexto {
 	private void NuevoArchivo()
 	{
 		archivo=null;
-		textArea.setText("");
+		editorPane.setText("");
 		frame.setTitle("Nuevo documento de texto plano");
 	}
 	
 	private boolean GuardarArchivo()
 	{
-		archivo=es.archivos.GrabarTextoPlano(archivo, textArea.getText());
+		archivo=es.archivos.GrabarTextoPlano(archivo, editorPane.getText());
 		if(archivo!=null)
 			{
 				frame.setTitle(archivo.getName());

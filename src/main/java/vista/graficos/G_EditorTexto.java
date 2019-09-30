@@ -9,6 +9,7 @@ import javax.swing.JTextArea;
 import javax.swing.JToolBar;
 
 import nucleo.App;
+import javax.swing.JEditorPane;
 
 
 
@@ -19,11 +20,11 @@ protected JFrame frame;
 protected JPanel panelPrincipal;
 protected JPanel panelInferior;
 protected JPanel panelContenedor;
-protected JTextArea textArea;
 protected JToolBar toolBar;
 protected boolean ventanaVisible=false;
 protected JButton btnGuardar;
 protected JButton btnNuevo;
+protected JEditorPane editorPane;
 
 public G_EditorTexto()
 {			
@@ -43,9 +44,6 @@ public G_EditorTexto()
 	panelPrincipal.add(panelContenedor, BorderLayout.CENTER);
 	panelContenedor.setLayout(new BorderLayout(0, 0));
 	
-	textArea = new JTextArea();
-	panelContenedor.add(textArea);
-	
 	toolBar = new JToolBar();
 	panelContenedor.add(toolBar, BorderLayout.NORTH);
 	
@@ -54,6 +52,9 @@ public G_EditorTexto()
 	
 	btnGuardar = new JButton("Guardar");
 	toolBar.add(btnGuardar);
+	
+	editorPane = new JEditorPane();
+	panelContenedor.add(editorPane, BorderLayout.CENTER);
 }
 	
 }
