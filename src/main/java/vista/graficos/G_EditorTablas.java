@@ -13,6 +13,11 @@ import objetos.Celda;
 import objetos.CeldaDatos;
 import javax.swing.JToolBar;
 import javax.swing.JButton;
+import javax.swing.JToggleButton;
+import javax.swing.JComboBox;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class G_EditorTablas extends App {
 
@@ -30,6 +35,7 @@ public class G_EditorTablas extends App {
 	protected JSlider sliderHorizontal, sliderVertical;
 	protected JButton btnNuevo;
 	protected JButton btnGuardar;
+	protected JToggleButton btnEdicion;
 	
 	public G_EditorTablas()
 	{		
@@ -62,6 +68,7 @@ public class G_EditorTablas extends App {
 		panelContenedor.setLayout(new BorderLayout(0, 0));
 		
 		panelDatos = new JPanel();
+		panelDatos.setBackground(Color.WHITE);
 		panelContenedor.add(panelDatos, BorderLayout.CENTER);
 		panelDatos.setLayout(null);
 
@@ -77,11 +84,18 @@ public class G_EditorTablas extends App {
 		JToolBar toolBar = new JToolBar();
 		panelContenedor.add(toolBar, BorderLayout.NORTH);
 		
+		JPanel panel = new JPanel();
+		toolBar.add(panel);
+		
 		btnNuevo = new JButton("Nuevo");
-		toolBar.add(btnNuevo);
+		panel.add(btnNuevo);
 		
 		btnGuardar = new JButton("Guardar");
-		toolBar.add(btnGuardar);
+		panel.add(btnGuardar);
+		
+		btnEdicion = new JToggleButton("Modo edicion");
+		
+		panel.add(btnEdicion);
 	}
 }
 

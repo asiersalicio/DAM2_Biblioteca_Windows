@@ -5,6 +5,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import vista.controladores.Catalogo;
 import vista.controladores.EditorTexto;
 
 public class Menu extends App {
@@ -18,7 +19,8 @@ public class Menu extends App {
 		System.out.println("1. Leer archivo (Consola)");
 		System.out.println("2. Leer archivo (Editor grafico)");
 		System.out.println("3. Abrir editor de texto");
-		switch(es.consola.IntroducirInt("Selecione una opcion", 0, 3))
+		System.out.println("4. Ver/Editar catalogo");
+		switch(es.consola.IntroducirInt("Selecione una opcion", 0, 4))
 		{
 		case 0: System.exit(0);
 		break;

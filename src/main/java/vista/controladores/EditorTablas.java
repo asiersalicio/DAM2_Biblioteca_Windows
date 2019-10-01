@@ -11,7 +11,6 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import objetos.Celda;
-import objetos.CeldaAnadir;
 import objetos.CeldaDatos;
 import vista.graficos.G_EditorTablas;
 
@@ -57,6 +56,12 @@ public class EditorTablas extends G_EditorTablas {
 				cambios=false;
 			}
 		});	
+		
+		btnEdicion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ActivarModoEdcionCeldas(btnEdicion.isSelected());
+			}
+		});
 	}
 
 	public void Mostrar()
@@ -77,7 +82,7 @@ public class EditorTablas extends G_EditorTablas {
 			celdas.add(y, new ArrayList<Celda>());
 			for(x=0;x<arrayList.get(y).size();x++)
 			{
-				celdas.get(y).add(x, new CeldaDatos(panelDatos, x, y, arrayList.get(y).get(x)));
+				celdas.get(y).add(x, new CeldaDatos(frame, panelDatos, x, y, arrayList.get(y).get(x)));
 			}
 			//celdas.get(y).add(x+1, new CeldaAnadir(panelDatos, x+1, y));
 		}
@@ -94,6 +99,24 @@ public class EditorTablas extends G_EditorTablas {
 					for(int x=0;x<celdas.get(y).size();x++)
 					{					
 						celdas.get(y).get(x).ActualizarPos(scrollHorizontal.getValue(), scrollVertical.getValue(), anchoCeldas, altoCeldas);
+					}
+				}
+				catch(NullPointerException ex) {}
+			}
+		}
+	}
+	
+	private void ActivarModoEdcionCeldas(boolean ModoEdcion)
+	{
+		if(ventanaVisible)
+		{
+			for(int y=0;y<celdas.size();y++)
+			{
+				try 
+				{
+					for(int x=0;x<celdas.get(y).size();x++)
+					{					
+						celdas.get(y).get(x).ModoEdicion(ModoEdcion);;
 					}
 				}
 				catch(NullPointerException ex) {}
