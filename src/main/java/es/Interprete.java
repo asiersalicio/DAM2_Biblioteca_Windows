@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import nucleo.App;
+import objetos.Celda;
+import objetos.CeldaDatos;
 import vista.controladores.EditorTablas;
 import vista.controladores.EditorTexto;
 
@@ -175,5 +177,22 @@ public class Interprete extends App {
 		{
 			return false;
 		}
+	}
+	
+	
+	public File GuardarArrayListEnCSV(File archivo, ArrayList<ArrayList<String>> arrayList, String separador)
+	{
+		String resultado = "";
+		int x,y;
+		
+		for(y=0;y<arrayList.size();y++)
+		{
+			for(x=0;x<arrayList.get(y).size();x++)
+			{
+				resultado=resultado + arrayList.get(y).get(x) + separador;
+			}
+			resultado=resultado+"\n";			
+		}
+		return es.archivos.GrabarTextoPlano(archivo, resultado);
 	}
 }

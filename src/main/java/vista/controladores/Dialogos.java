@@ -14,26 +14,14 @@ import vista.graficos.G_EditorRapido;
 
 public class Dialogos {
 
-	public static String EditorRapido(JFrame framePadre, boolean activo, String texto) {
+	public static String EditorRapido(JDialog framePadre, boolean activo, String texto) {
 		G_EditorRapido editorRapido = new G_EditorRapido(framePadre, texto);		
 		editorRapido.getTextArea().setEnabled(activo);
+		editorRapido.getTextArea().setDisabledTextColor(Color.black);
 		editorRapido.getBtnAceptar().setVisible(activo);
 		editorRapido.getFrame().setVisible(true);
-		return editorRapido.getTextArea().getText();
+		return editorRapido.getTexto();
 	}
 	
-	
-	private void ModoEdicion(boolean activo)
-	{
-		
-//		if(activo)
-//		{
-//			textArea.setBackground(Color.WHITE);
-//		}
-//		else
-//		{
-//			textArea.setBackground(Color.LIGHT_GRAY);
-//		}
-	}
 
 }

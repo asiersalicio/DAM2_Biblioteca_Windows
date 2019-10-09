@@ -8,7 +8,9 @@ import java.awt.Color;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 
-public class Celda {
+import nucleo.App;
+
+public class Celda extends App {
 
 	protected JPanel panel;
 	protected int colX;

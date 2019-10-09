@@ -14,19 +14,25 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import java.awt.Dialog.ModalExclusionType;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class G_EditorRapido extends App {
 	protected JDialog frame;
 	protected JTextArea textArea;
 	protected JButton btnAceptar;
 	protected JButton btnCancelar;
+	protected String textoADevolver;
 	
-	public G_EditorRapido(JFrame framePadre, String texto)
+	public G_EditorRapido(JDialog framePadre, String texto)
 	{
 		Dibujar(framePadre, texto);
+		textoADevolver=texto;
+		CrearListeners();
 	}
 	
-	private void Dibujar(JFrame framePadre, String texto)
+
+	private void Dibujar(JDialog framePadre, String texto)
 	{
 		frame = new JDialog(framePadre, Dialog.ModalityType.DOCUMENT_MODAL);
 		frame.setTitle("EditorRapido");
@@ -41,10 +47,27 @@ public class G_EditorRapido extends App {
 		panel.setLayout(new BorderLayout(0, 0));
 		
 		btnAceptar = new JButton("Aceptar");
+		
 		panel.add(btnAceptar, BorderLayout.WEST);
 		
 		btnCancelar = new JButton("Cancelar");
 		panel.add(btnCancelar, BorderLayout.EAST);
+	}
+	
+	private void CrearListeners() {
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textoADevolver=textArea.getText();
+				frame.dispose();
+			}
+		});
+		
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frame.dispose();
+			}
+		});
+
 	}
 	
 	public JDialog getFrame() {
@@ -57,5 +80,10 @@ public class G_EditorRapido extends App {
 
 	public JButton getBtnAceptar() {
 		return btnAceptar;
+	}
+	
+	public String getTexto()
+	{
+		return textoADevolver;
 	}
 }

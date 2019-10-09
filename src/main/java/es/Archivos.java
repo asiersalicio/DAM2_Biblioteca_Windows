@@ -3,6 +3,7 @@ package es;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -83,6 +84,7 @@ public class Archivos {
 	}catch(IOException ex) {}
 		return archivo;
 	}
+	
 	
 
 

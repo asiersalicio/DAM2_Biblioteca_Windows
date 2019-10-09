@@ -2,6 +2,7 @@ package nucleo;
 
 import es.Es;
 import vista.Vista;
+import vista.graficos.G_Menu;
 
 public class App {
 

@@ -7,13 +7,18 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import vista.controladores.Catalogo;
 import vista.controladores.EditorTexto;
+import vista.graficos.G_Menu;
 
 public class Menu extends App {
 
+	G_Menu gmenu;
+	
 	public void MostrarMenu()
 	{
- 		while(true)
+ 		
+		while(true)
  		{
+		try{gmenu = new G_Menu();} catch (Exception ex) {};
 		System.out.println("### Biblioteca de Bidebarrieta ###");
 		System.out.println("0. Salir");
 		System.out.println("1. Leer archivo (Consola)");
@@ -34,7 +39,7 @@ public class Menu extends App {
  		}
 	}
 	
-	private void LeerModoGrafico() {
+	public void LeerModoGrafico() {
 		{
 			File archivo = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivos: .txt .csv .ini", "txt", "csv", "ini"));
 			if(archivo!=null)
@@ -48,7 +53,7 @@ public class Menu extends App {
 		}
 	}
 
-	private void LeerModoConsola()
+	public void LeerModoConsola()
 	{
 		File archivo = es.archivos.ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivos: .txt .csv .ini", "txt", "csv", "ini"));
 		if(archivo!=null)

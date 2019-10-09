@@ -3,6 +3,7 @@ package vista.graficos;
 import java.awt.BorderLayout;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -16,7 +17,7 @@ import javax.swing.JEditorPane;
 public class G_EditorTexto extends App
 {
 
-protected JFrame frame;
+protected JDialog frame;
 protected JPanel panelPrincipal;
 protected JPanel panelInferior;
 protected JPanel panelContenedor;
@@ -28,7 +29,7 @@ protected JEditorPane editorPane;
 
 public G_EditorTexto()
 {			
-	frame = new JFrame();
+	frame = new JDialog();
 	frame.setTitle("Nuevo documento de texto plano");
 	frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 	frame.setSize(500, 500);

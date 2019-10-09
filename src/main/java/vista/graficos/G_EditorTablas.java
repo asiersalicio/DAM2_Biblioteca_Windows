@@ -15,13 +15,15 @@ import javax.swing.JToolBar;
 import javax.swing.JButton;
 import javax.swing.JToggleButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
+
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class G_EditorTablas extends App {
 
-	protected JFrame frame;
+	protected JDialog frame;
 	protected JPanel panelPrincipal;
 	protected JPanel panelInferior;
 	protected JPanel panelContenedor;
@@ -39,7 +41,7 @@ public class G_EditorTablas extends App {
 	
 	public G_EditorTablas()
 	{		
-		frame = new JFrame();
+		frame = new JDialog();
 		frame.setSize(500, 500);
 		
 		panelPrincipal = new JPanel();

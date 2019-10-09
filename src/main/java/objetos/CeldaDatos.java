@@ -5,6 +5,7 @@ import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -14,15 +15,15 @@ import vista.controladores.Catalogo;
 import vista.controladores.Dialogos;
 
 public class CeldaDatos extends Celda {
-	private String nomCelda;
-	private JFrame framePadre;
-	private JLabel lblCol;
+	public String nomCelda;
+	protected JDialog framePadre;
+	protected JLabel lblCol;
 	
-	public CeldaDatos(JFrame framePadre, JPanel panelDatos, int colX, int colY, String nomCelda)
+	public CeldaDatos(JDialog frame, JPanel panelDatos, int colX, int colY, String nomCelda)
 	{
 		super(panelDatos,colX,colY, true);
 		this.nomCelda=nomCelda;
-		this.framePadre=framePadre;
+		this.framePadre=frame;
 		
 		lblCol = new JLabel(nomCelda);
 		lblCol.setBounds(5, 30, 279, 14);
@@ -43,9 +44,12 @@ public class CeldaDatos extends Celda {
 	
 	public void EstablecerTexto(String texto)
 	{
-		nomCelda=texto;
-		lblCol.setText(texto);		
+		if(nomCelda!=texto)
+		{
+			nomCelda=texto;
+			lblCol.setText(texto);
+			vista.editorTablas.cambios=true;
+		}
+			
 	}
-
-
 }
