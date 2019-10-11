@@ -24,7 +24,7 @@ public class G_Menu extends App {
 	public G_Menu() {
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setBounds(100, 100, 419, 106);
+		frame.setBounds(100, 100, 419, 123);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -63,6 +63,15 @@ public class G_Menu extends App {
 					}
 				});
 				panel.add(editorTextoPlano);
+				
+				Button CambiadorTamañoArchivos = new Button("CambiarTama\u00F1oArchivo");
+				CambiadorTamañoArchivos.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						new G_CambiarTamaño();
+					}
+				});
+				CambiadorTamañoArchivos.setActionCommand("EditorArchivos");
+				panel.add(CambiadorTamañoArchivos);
 				panel.add(salir);
 		
 		JLabel label = new JLabel("Bienvenido a  bidebarrieta, elige una de las opciones");
