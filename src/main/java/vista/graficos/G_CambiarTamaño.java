@@ -74,7 +74,7 @@ public class G_CambiarTamaño extends App {
 		
 		
 		
-		JLabel lblKb = new JLabel("MB");
+		JLabel lblKb = new JLabel("KB");
 		lblKb.setBounds(104, 41, 46, 14);
 		panelPrincipal.add(lblKb);
 		

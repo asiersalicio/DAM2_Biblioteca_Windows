@@ -15,6 +15,9 @@ import javax.swing.border.EmptyBorder;
 
 import nucleo.App;
 import vista.controladores.EditorTexto;
+import vista.controladores.Tratamiento;
+
+import javax.swing.JButton;
 
 
 public class G_Menu extends App {
@@ -72,6 +75,14 @@ public class G_Menu extends App {
 				});
 				CambiadorTamañoArchivos.setActionCommand("EditorArchivos");
 				panel.add(CambiadorTamañoArchivos);
+				
+				Button btnTratamiento = new Button("Tratamiento texto");
+				btnTratamiento.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						new Tratamiento();
+					}
+				});
+				panel.add(btnTratamiento);
 				panel.add(salir);
 		
 		JLabel label = new JLabel("Bienvenido a  bidebarrieta, elige una de las opciones");
