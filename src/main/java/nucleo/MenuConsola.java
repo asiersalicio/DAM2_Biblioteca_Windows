@@ -7,18 +7,19 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import vista.controladores.Catalogo;
 import vista.controladores.EditorTexto;
+import vista.controladores.Menu;
 import vista.graficos.G_Menu;
 
-public class Menu extends App {
+public class MenuConsola extends App {
 
-	G_Menu gmenu;
+	Menu gmenu;
 	
 	public void MostrarMenu()
 	{
  		
 		while(true)
  		{
-		try{gmenu = new G_Menu();} catch (Exception ex) {};
+		try{gmenu = new Menu();} catch (Exception ex) {};
 		System.out.println("### Biblioteca de Bidebarrieta ###");
 		System.out.println("0. Salir");
 		System.out.println("1. Leer archivo (Consola)");

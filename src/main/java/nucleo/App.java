@@ -8,7 +8,7 @@ public class App {
 
 	public static Es es;
 	public static Vista vista;
-	public static Menu menu;
+	public static MenuConsola menu;
 	
 	public static void main(String[] args) {
 		Inicializar();
@@ -24,7 +24,7 @@ public class App {
 	{
 		es = new Es();
 		vista = new Vista();
-		menu = new Menu();
+		menu = new MenuConsola();
 	}
 	
 }
