@@ -12,6 +12,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.UIManager;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Font;
 
 public class G_Tratamiento {
 
@@ -19,9 +20,12 @@ public class G_Tratamiento {
 	public JTextField textFormat;
 	public JLabel lblRegex;
 	public JTextPane textOrigen, textDestino;
-	public JCheckBox chckbxQuitarEspacios;
+	public JCheckBox chckbxFormatear, chckboxQuitarTildes;
 	public JRadioButton rbMayusculas, rbMinusculas, rbNoCambiar;
 	public JButton btnConvertir;
+	public JLabel lblFormatoValido;
+	public JLabel lblFormatoNoValido;
+
 	
 	public G_Tratamiento()
 	{
@@ -39,6 +43,7 @@ public class G_Tratamiento {
 		frame.getContentPane().add(textOrigen);
 		
 		textFormat = new JTextField();
+		textFormat.setText("[a-zA-Z0-9., ]*");
 		textFormat.setBounds(76, 127, 120, 20);
 		frame.getContentPane().add(textFormat);
 		textFormat.setColumns(10);
@@ -55,21 +60,21 @@ public class G_Tratamiento {
 		textDestino.setBounds(10, 188, 562, 105);
 		frame.getContentPane().add(textDestino);
 		
-		chckbxQuitarEspacios = new JCheckBox("Quitar espacios");
-		chckbxQuitarEspacios.setBounds(202, 126, 109, 23);
-		frame.getContentPane().add(chckbxQuitarEspacios);
+		chckbxFormatear = new JCheckBox("Formatear");
+		chckbxFormatear.setBounds(336, 124, 109, 23);
+		frame.getContentPane().add(chckbxFormatear);
 		
 		rbMayusculas = new JRadioButton("Mayusculas");
-		rbMayusculas.setBounds(110, 158, 109, 23);
+		rbMayusculas.setBounds(229, 158, 109, 23);
 		frame.getContentPane().add(rbMayusculas);
 		
 		rbMinusculas = new JRadioButton("Minusculas");
-		rbMinusculas.setBounds(221, 158, 109, 23);
+		rbMinusculas.setBounds(340, 158, 109, 23);
 		frame.getContentPane().add(rbMinusculas);
 		
 		rbNoCambiar = new JRadioButton("No cambiar");
 		rbNoCambiar.setSelected(true);
-		rbNoCambiar.setBounds(332, 158, 109, 23);
+		rbNoCambiar.setBounds(451, 158, 109, 23);
 		frame.getContentPane().add(rbNoCambiar);
 		
 		ButtonGroup group = new ButtonGroup();
@@ -80,5 +85,22 @@ public class G_Tratamiento {
 		btnConvertir = new JButton("Convertir");
 		btnConvertir.setBounds(241, 307, 89, 23);
 		frame.getContentPane().add(btnConvertir);
+		
+		chckboxQuitarTildes = new JCheckBox("Quitar tildes");
+		chckboxQuitarTildes.setBounds(451, 124, 109, 23);
+		frame.getContentPane().add(chckboxQuitarTildes);
+		
+		lblFormatoValido = new JLabel("Formato valido");
+		lblFormatoValido.setVisible(false);
+		lblFormatoValido.setForeground(new Color(0, 102, 0));
+		lblFormatoValido.setBounds(206, 130, 124, 14);
+		frame.getContentPane().add(lblFormatoValido);
+		
+		lblFormatoNoValido = new JLabel("Formato no valido");
+		lblFormatoNoValido.setVisible(false);
+		lblFormatoNoValido.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblFormatoNoValido.setForeground(new Color(204, 0, 0));
+		lblFormatoNoValido.setBounds(206, 130, 124, 14);
+		frame.getContentPane().add(lblFormatoNoValido);
 	}
 }
