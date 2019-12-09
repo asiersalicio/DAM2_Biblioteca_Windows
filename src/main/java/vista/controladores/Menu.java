@@ -53,7 +53,7 @@ public class Menu extends G_Menu {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new EditarAtributos(new es.Archivos().ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivos txt", "txt")));
+				new EditarAtributos(new es.Archivos().ElegirArchivo(new JFileChooser(), new FileNameExtensionFilter("Archivos txt o exe", "txt","exe")));
 			}
 		});
 	}
