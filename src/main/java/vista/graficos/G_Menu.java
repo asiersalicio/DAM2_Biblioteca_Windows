@@ -23,6 +23,7 @@ public class G_Menu extends App {
 
 	private JPanel contentPane;
 	public JButton btnTratamiento, CambiadorTamañoArchivos, catalogo, salir, editorTextoPlano;
+	public JButton btnPropiedadesArchivo;
 
 	public G_Menu() {
 		JFrame frame = new JFrame();
@@ -47,10 +48,13 @@ public class G_Menu extends App {
 		
 		panel.add(editorTextoPlano);
 
-		CambiadorTamañoArchivos = new JButton("CambiarTama\u00F1oArchivo");
+		CambiadorTamañoArchivos = new JButton("Crear Archivo");
 		
 		CambiadorTamañoArchivos.setActionCommand("EditorArchivos");
 		panel.add(CambiadorTamañoArchivos);
+		
+		btnPropiedadesArchivo = new JButton("Propiedades Archivo");
+		panel.add(btnPropiedadesArchivo);
 
 		btnTratamiento = new JButton("Tratamiento texto");
 		
